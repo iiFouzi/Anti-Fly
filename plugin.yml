@@ -1,0 +1,5 @@
+name: AntiFly
+version: 1.0.0
+main: Fouzi\AntiFly
+api: [3.0.0, 4.0.0]
+author: iiFouzi
