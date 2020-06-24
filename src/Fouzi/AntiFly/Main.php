@@ -24,7 +24,7 @@ class Main extends PluginBase implements Listener
     
     $player = $event->getPlayer();
     
-    if ($player->getLevel()->getName() == "Lobby" || $player->getLevel()->getName() == "world"){
+    if ($player->getLevel()->getName() == "Lobby" || $player->getLevel()->getName() == "world" || $player->getLevel()->getName() == "spawn"){
       
     } else {
       if($player->isFlying()){
