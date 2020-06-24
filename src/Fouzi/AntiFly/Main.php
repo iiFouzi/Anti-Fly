@@ -33,7 +33,8 @@ class Main extends PluginBase implements Listener
       
       //if player has fly Permission or creative he wont get kicked
       
-    } elseif ($player->getAllowFlight(false)){
+    }
+    if ($player->getAllowFlight(false)){
       
       //if player does not have Permission to fly
       
