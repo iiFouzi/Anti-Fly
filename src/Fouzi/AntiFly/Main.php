@@ -45,7 +45,7 @@ class Main extends PluginBase implements Listener
         
         //send message to all the online players
         
-        Server::getInstance()->broadcastMessage(TF::RED . $player->getName() . TF::WHITE . "")
+        Server::getInstance()->broadcastMessage(TF::RED . $player->getName() . TF::WHITE . "");
       }
     }
   }
