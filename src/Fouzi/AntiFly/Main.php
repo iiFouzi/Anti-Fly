@@ -25,6 +25,8 @@ class Main extends PluginBase implements Listener
     $player = $event->getPlayer();
     
     if ($player->getLevel()->getName() == "Lobby" || $player->getLevel()->getName() == "world"){
+      
+    } else {
       if($player->isFlying()){
         $player->kick(TF::GREEN . "You have been kicked by " . TF::RED . "AntiCheat" . TF::GREEN . " For Flying");
         Server::getInstance()->broadcastMessage(TF::RED . "AntiCheat has just kicked " . TF::WHITE . $player->getName() . TF::RED . " for using Fly Hacking");
