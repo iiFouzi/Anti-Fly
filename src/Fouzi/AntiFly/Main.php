@@ -15,7 +15,12 @@ class Main extends PluginBase implements Listener
   
   public function onEnable()
   {
+    // register the events so the functions will work
+    
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    
+    // when plugin is enabled
+    
     $this->getLogger()->info(TF::RED . "AntiFly by iiFouzi has been successfully enabled");
   }
   
@@ -24,19 +29,31 @@ class Main extends PluginBase implements Listener
     
     $player = $event->getPlayer();
     
-    if ($player->getLevel()->getName() == "Lobby" || $player->getLevel()->getName() == "world" || $player->getLevel()->getName() == "spawn"){
+    if ($player->getAllowFlight(true)){
       
-    } else {
+      //if player has fly Permission or creative he wont get kicked
+      
+    } elseif ($player->getAllowFlight(false)){
+      
+      //if player does not have Permission to fly
+      
       if($player->isFlying()){
-        $player->kick(TF::GREEN . "You have been kicked by " . TF::RED . "AntiCheat" . TF::GREEN . " For Flying");
-        Server::getInstance()->broadcastMessage(TF::RED . "AntiCheat has just kicked " . TF::WHITE . $player->getName() . TF::RED . " for using Fly Hacking");
         
+        //player will get kicked automatically because he is flying without Permission
+        
+        $player->kick(TF::RED . "You have been kicked By AntiCheat for using Fly hacks");
+        
+        //send message to all the online players
+        
+        Server::getInstance()->broadcastMessage(TF::RED . $player->getName() . TF::WHITE . "")
       }
     }
   }
   
   public function onDisable()
   {
+    //when plugin is disabled
+    
     $this->getLogger()->info(TF::RED . "AntiFly has been disabled");
   }
   
